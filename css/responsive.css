@@ -1,0 +1,268 @@
+@media screen and (min-width: 768px) {
+    .mobile-logo, .mobile-btn{
+        display: none;
+      }
+      .desktop-logo, .desktop-btn{
+       display: block;
+      }
+    .site-header{
+        display: flex;
+    }
+    .site-header .header-align .primary-btn,
+    .site-header .header-align .menu-icon
+    {
+        display: none;
+    }
+    .site-header .main-navigation{
+        display: flex;
+        overflow-y: none;
+        flex-direction: row;
+        align-items: center;
+        background-color: transparent;
+        height: auto;
+
+    }
+    .admin-bar .site-header .main-navigation{
+        height: 100%;
+    }
+    .menu-menu-1-container {
+        padding-bottom: 0; 
+        height: 100%;
+    }
+    .main-navigation .nav-menu {
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    .main-navigation li {
+        padding: 0;
+        width: auto;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        padding-bottom: 3px;
+    }
+    .main-navigation div ul a {
+        color: #000;
+        text-wrap: nowrap;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 500;
+    }
+    .site-branding .custom-logo-link img {
+        max-width: 300px;
+    }
+    .site-header {
+        height: 74px;
+    }
+    .admin-bar .site-header {
+        top: 32px;
+    }
+    main {
+     padding-top: 74px;    
+    }
+    .menu-align .secondary-btn, .menu-align .socials-block{
+        display: none;
+    }
+    .secondary-btn{
+        width: fit-content;
+    }
+    .menu-align{
+        margin-bottom: 0;
+        height: 100%;
+        padding: 15px;
+    }
+    .menu-align .primary-btn{
+        padding: 15px;
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 0;
+    }
+    .main-navigation ul ul {
+        display: none;
+        position: absolute;
+        left: -25%;
+        background-color: #fff;
+        flex-direction: column;
+    }
+     .main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul {
+        display: flex;
+        left: -25%;
+    }
+    .main-navigation .menu_arrow + label::before, .main-navigation .menu_arrow + label::after {
+        background: #000;
+        height: 0.1rem;
+    }
+    .main-navigation li.current_page_parent .menu_arrow + label::before, .main-navigation li.current_page_parent .menu_arrow + label::after {
+        background: #000;
+        height: 0.2rem;
+    }
+    .main-navigation .menu_arrow + label {
+        padding: 0.5rem;
+        margin-left: 10px;
+    }
+    .main-navigation div ul ul a{
+        color: rgba(0, 0, 0, 0.7);
+    }
+    .main-navigation li.current_page_parent>a{
+        font-weight: 700;
+    }
+    .main-navigation li.current_page_parent{
+        border-bottom: 3px solid #000;
+        padding-bottom: 0px;
+
+    }
+    .sub-menu {
+        padding-bottom: 15px;
+    }
+    /* Highlight using list element */
+    .sub-menu li.current_page_item a{
+        border-bottom: 1px solid #000;
+        color: #000;
+    }
+    .hero {
+        padding: 80px;
+    }
+    .hero-top {
+        flex-direction: row;
+        align-items: normal;
+        gap: 100px;
+    }
+    .site-footer .site-info{
+        width: min-content;
+        min-width: 180px;
+        max-width: 300px;
+    }
+    .site-footer .footer-logo{
+        margin-top: 0;
+    }
+    .site-footer {
+        padding: 10px 60px 60px 60px;
+    }
+    .footer-links {
+        flex-wrap: nowrap;
+    }
+    .terms-and-copyright-container {
+        margin-top: 60px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .terms-policy-block {
+    margin: 0;
+    }
+    .how-works{
+        position: relative;
+    }
+    .how-works .bb-image{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 40%;
+        width: 40%;
+        background-size: 190% !important;
+    }
+    .container {
+        padding: 60px;
+    }
+    .how-works .container{
+        display: flex;
+        gap: 10%;
+        padding-bottom: 150px;
+    }
+    .how-works .container>div{
+        width: 50%;
+    }
+    .why-us{
+        position: relative;
+    }
+    .why-us .posts{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .why-us .posts>* {
+        flex-basis: calc(33.333% - 40px)
+    }
+    .why-us .xp-blocks {
+        gap: 10%;
+    }
+    .why-us .xp-blocks>div{
+        flex-grow: 1;
+    }
+
+    .xp-wrapper{
+        width: 40%;
+        margin-left: 60%;
+    }
+    .truck-visual-image {
+        left: 0;
+    bottom: 50px;
+    position: absolute;
+    height: 400px;
+    width: 50%;
+    background-size: contain !important;
+    background-position-y: 100% !important;
+
+    }
+    .cost .container{
+        display: flex;
+        gap: 10%;
+    }
+    .cost .container>div{
+    width: 50%;
+    }
+    .cost .faq-head label{
+        display: none;
+    }
+    .cost .faq-text {
+        display: flex;
+    }
+    .cost{
+        position: relative;
+    }
+
+    .cost .bb-image{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        height: 30%;
+        background-size: 190% !important;
+        background-position-y: 100% !important;
+        background-position-x: 100% !important;
+    }
+    .faq-section .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .faq-section .container>div{
+        display: flex;
+        flex-direction: row;
+        gap: 80px;
+    }
+    .faq-section .container>div>div:first-child{
+        flex-basis: 60%
+    }
+    .faq-section .container>div>div:last-child{
+        flex-basis: 40%
+    }
+    .faq-section .container>div:last-child{
+        flex-direction: row-reverse;
+    }
+    .articles-list{
+        flex-direction: row;
+        gap: 30px;
+    }
+    .blog-list .secondary-btn{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .blog-list h1{
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .blog-list article {
+    padding: 30px;
+    }
+
+
+}

@@ -1,0 +1,156 @@
+
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(black);
+    /* Not removed via appearance */
+    margin: 0;
+    cursor: pointer;
+    font: inherit;
+    color: currentColor;
+    width: 1.9em;
+    height: 1.9em;
+    border: 0.15em solid #9CA3AE;
+    border-radius: 50%;
+    transform: translateY(-0.45em);
+  
+    display: grid;
+    place-content: center;
+  }
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(black);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+:root {
+    --bar-bg: #212529;
+}
+.menu-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.menu-icon .menu-icon__cheeckbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-touch-callout: none;
+    position: absolute;
+    opacity: 0;
+}
+.menu-icon div {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+}
+.menu-icon span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--bar-bg, #000);
+    border-radius: 1px;
+    transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+}
+.menu-icon span:first-of-type {
+    top: 0;
+}
+.menu-icon span:last-of-type {
+    bottom: 0;
+}
+.menu-icon.active span:first-of-type, .menu-icon .menu-icon__cheeckbox:checked + div span:first-of-type {
+    transform: rotate(45deg);
+    top: 5px;
+}
+.menu-icon.active span:last-of-type, .menu-icon .menu-icon__cheeckbox:checked + div span:last-of-type {
+    transform: rotate(-45deg);
+    bottom: 5px;
+}
+.menu-icon.active:hover span:first-of-type, .menu-icon.active:hover span:last-of-type, .menu-icon:hover .menu-icon__cheeckbox:checked + div span:first-of-type, .menu-icon:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+    width: 22px;
+}
+@media (min-width: 1024px) {
+    .menu-icon:hover span:first-of-type {
+        width: 26px;
+   }
+    .menu-icon:hover span:last-of-type {
+        width: 12px;
+   }
+}
+
+
+
+/*--------------Arrow----------------*/
+
+.menu_arrow {
+    display: none;
+}
+.menu_arrow + label {
+    display: inline-block;
+    position: relative;
+    padding: 1rem;
+    float: right;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.menu_arrow + label::before, .menu_arrow + label::after {
+    content: "";
+    background: #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 0.05rem;
+    width: calc(50% + .125rem);
+    margin: auto;
+    transition: transform 0.2s cubic-bezier(0.8, 0.2, 0.5, 0.1);
+}
+.cost .menu_arrow + label::before, .cost .menu_arrow + label::after {
+    background: #000000;
+}
+.menu_arrow + label::before {
+    left: 0;
+    border-radius: 50px 0 0 50px;
+}
+.menu_arrow + label::after {
+    right: 0;
+    border-radius: 0 50px 50px 0;
+}
+.menu_arrow-invert + label::before {
+    transform: rotate(40deg);
+}
+.menu_arrow-invert + label::after {
+    transform: rotate(-40deg);
+}
+.focus .menu_arrow-invert + label::before, .menu-item-has-children:hover .menu_arrow-invert + label::before{
+    transform: rotate(-40deg);
+}
+.focus .menu_arrow-invert + label::after, .menu-item-has-children:hover .menu_arrow-invert + label::after{
+    transform: rotate(40deg);
+}
+.focus .menu_arrow-invert + label{
+    pointer-events: all;
+}

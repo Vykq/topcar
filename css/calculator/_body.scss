@@ -1,0 +1,35 @@
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+body {
+  overflow-x: hidden;
+}
+
+
+html {
+  overflow-x: hidden;
+  font-weight: 400;
+  font-size: 20px;
+  scroll-behavior: smooth;
+  &.modal-is-open {
+    overflow-y: hidden!important;
+  }
+  @media (max-width: 1420px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 15px;
+  }
+  @media (max-width: 750px) {
+    font-size: 14px;
+  }
+}

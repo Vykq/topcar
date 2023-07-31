@@ -1,0 +1,811 @@
+.calculated-cost-container {
+    margin-top:4rem;
+    .wrapper{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap:5rem;
+        .left{
+            .error-msg, .error-msg2, .error-msg3{
+                color:red;
+                font-size: 1rem;
+                font-weight: 700;
+                margin-top:1rem;
+            }
+            
+            &.hidden{
+                display:none;
+            }
+            &.first-step{
+            h1 {
+                font-weight: 600;
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                color:#000;
+            }
+            .gray-container {
+                margin:1.5rem 0 2rem;
+                background-color: $lgray;
+                border-radius: 7px;
+                padding:1rem;
+                .inner-wrapper{
+                  p {
+                    color:#000;
+                    font-size:0.9rem;
+                    line-height: 1.2rem;
+                    font-weight: 500;
+                  }
+                }
+            }
+            .top-wrapper{
+                display:grid;
+                grid-template-columns: max-content max-content;
+                gap:5rem;
+                border-bottom: 1px solid $dgray;
+                padding:0.8rem 0;
+                .left, .right {
+                    display: flex;
+                    gap:0.75rem;
+                    .grayed-text {
+                        font-size: 0.9rem;
+                        line-height: 1.2rem;
+                        color:$dgray;
+                        font-weight: 600;
+                    }
+                    .service {
+                        font-size: 0.9rem;
+                        line-height: 1.2rem;
+                        color:#000;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .two-big-radio {
+                display:grid;
+                grid-template-columns: 1fr 1fr;
+                gap:3rem;
+                margin-top:3.5rem;
+                .single-radio{
+                    position: relative;
+                    .radio-title {
+                        color:#000;
+                        font-size: 1.25rem;
+                        font-weight: 600;
+                        line-height: 1.5rem;
+                        text-align: center;
+                    }
+                    input {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                      }
+                      input {
+                        opacity: 0.01;
+                        z-index: 100;
+                      }
+                      .approved {
+                        display: none;
+                        position: absolute;
+                        top:0;
+                        right:0;
+                        transform:translate(50%, -50%);
+                      }
+                      input[type="radio"]:checked+label,
+                      .Checked+label {
+                        border: 1px solid #77C76A;
+                        background-color: #fff;
+                        .approved{
+                            display: block;
+                        }
+                      }
+                      .price {
+                        font-size: 3rem;
+                        line-height: 3rem;
+                        font-weight: 600;
+                        color:#000;
+                      }
+                     
+                      label {
+                        border-radius: 0.35rem;
+                        padding:1.75rem 1.75rem 1.5rem;
+                        background-color: $gray;
+                        border: 1px solid $dgray;
+                        position: relative;
+                        display: flex;
+                        gap:2rem;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: .9rem;
+                        line-height: 1.15rem;
+                        height: 100%;
+                        font-weight: 500;
+                        cursor: pointer;
+                        text-align: center;
+                        z-index: 90;
+                        transition: .2s all ease;
+                        .label-text {
+                          width:50%;
+                        }
+                        &:hover {
+                           //HOVER
+                        }
+                      }
+              
+                }
+            }
+            .button-area {
+                display: flex;
+                justify-content: center;
+                margin:3rem 0;
+                span{
+                    cursor:pointer;
+                }
+            }
+            .text-area{
+                width: 70%;
+                text-align: center;
+                margin:0 auto;
+                p{
+                    color:#000;
+                    font-size: 0.9rem;
+                    line-height: 1.15rem;
+                    font-weight: 500;
+                }
+            }
+            .divider{
+                display: flex;
+                gap:1rem;
+                align-items: center;
+                justify-content: center;
+                margin:2rem 0;
+                .div {
+                    width: 100%;
+                    height: 1px;
+                    background-color: $dgray;
+                }
+            }
+            .phone-area {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1.15rem;
+                a {
+                    color:$blue;
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+        .top {
+            display: flex;
+            gap:0.5rem;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            .icon-wrapper{
+                width: 1rem;
+                height: 1rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .text {
+                color: #000;
+                font-size: 0.9rem;
+                font-weight: 600;
+                line-height: 1.15rem;
+            }
+        }
+        .title{
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        &.second-step{
+
+            .main-step-area{
+
+                .subtitle{
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 1.15rem; 
+                }
+            }
+            .options{
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                &.error{
+                    background-color: rgba(255, 0, 0, 0.2);
+                }
+                .title{
+                    color:$dgray;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    line-height: 1.15rem;
+                    margin-bottom: 1.2rem;
+                }
+                .single-radio{
+                    display: flex;
+                    gap:0.75rem;
+                    align-items: center;
+                    margin-bottom: 0.7rem;
+                    &:last-of-type{
+                        margin-bottom: 0;
+                    }
+                    input[type="radio"]{
+                        width: 1rem;
+                        height: 1rem;
+                        transform: none;
+                        &:before{
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
+                        &:before{
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
+                    }
+                    label{
+                        color: #000;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        line-height: 0.8rem;
+                    }
+                }
+            }
+            .inputs{
+                margin-top: 0.5rem;
+                .two-column{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap:1.5rem;
+                    margin-bottom: 1.5rem;
+                }
+                p{
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 0.8rem;
+                }
+                input{
+                    border-radius: 0.35rem;
+                    width: 100%;
+                    border: 1px solid $dgray;
+                    background: #FFF;
+                    padding:1rem;
+                    color:#000;
+                    &::placeholder{
+                        color:$dgray;
+                    }
+                    &.error{
+                        border:1px solid #e24358;
+                    }
+                }
+                .more{
+                    margin-top: 1.5rem;
+                    .hidden{
+                        display: none;
+                    }
+                }
+                .blue{
+                    cursor: pointer;
+                    margin-top: 1.5rem;
+                    color:$blue;     
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 0.9rem;
+                    .gray {
+                        color:$dgray;
+                    }
+                }
+            }
+            .button-area{
+                width: 100%;
+                margin-top: 2rem;
+                span{
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    width: max-content;
+                    gap:0.5rem;
+                }
+               
+                .half-col{
+                    width: 60%;
+                    margin-top: 2rem;
+                    .text{
+                        color:#000;
+                        font-size: 0.6rem;
+                        font-weight: 500;
+                        line-height: 0.85rem;
+                        a {
+                            color:$blue;
+                        }
+                    }
+                }
+            }
+
+        }
+        &.third-step {
+            .pickup-address-area{
+                margin-top: 1.5rem;
+                .label{
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 0.8rem;
+                }
+                .single-input{
+                    width: 50%;
+                    input{
+                        border-radius: 0.35rem;
+                        width: 100%;
+                        border: 1px solid #9CA3AE;
+                        background: #FFF;
+                        padding: 1rem;
+                        color: #000;
+                        &:placeholder{
+                            color:$dgray;
+                        }
+                        
+                    }
+                }
+                .current-pickup{
+                    display: block;
+                    margin-top: 2rem;
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 1.15rem;
+                }
+                .options{
+                    margin-top: 1rem;
+                    &.sec{
+                        margin-top:2rem;
+                    }
+                    .title{
+                        color: $dgray;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        line-height: 1.15rem;
+                    }
+                    .single-radio{
+                        display: flex;
+                        gap: 0.75rem;
+                        align-items: center;
+                        margin-bottom: 0.7rem;
+                        input[type="radio"]{
+                            width: 1rem;
+                            height: 1rem;
+                            transform: none;
+                            &:before{
+                                width: 0.5rem;
+                                height: 0.5rem;
+                            }
+                        }
+                        label{
+                            color: #000;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                            line-height: 0.8rem;
+                        }
+                    }
+                    .pickup-another-contact {
+                        margin-top: 2rem;
+                        &.hidden{
+                            display: none;
+                        }
+                        .single-input{
+                            &:last-of-type{
+                                margin-top: 1rem;
+                            }
+                        }
+                    }
+                }
+                .button-area{
+                    margin-top: 2rem;
+                    span {
+                        cursor:pointer;
+                    }
+                }
+            }
+        }
+
+        &.fourth-step {
+            .delivery-address-area{
+                margin-top: 1.5rem;
+                .label{
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 0.8rem;
+                }
+                .single-input{
+                    width: 50%;
+                    input{
+                        border-radius: 0.35rem;
+                        width: 100%;
+                        border: 1px solid #9CA3AE;
+                        background: #FFF;
+                        padding: 1rem;
+                        color: #000;
+                        &:placeholder{
+                            color:$dgray;
+                        }
+                        
+                    }
+                }
+                .current-delivery{
+                    display: block;
+                    margin-top: 2rem;
+                    color: #000;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 1.15rem;
+                }
+                .options{
+                    margin-top: 1rem;
+                    &.sec{
+                        margin-top:2rem;
+                    }
+                    .title{
+                        color: $dgray;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        line-height: 1.15rem;
+                    }
+                    .single-radio{
+                        display: flex;
+                        gap: 0.75rem;
+                        align-items: center;
+                        margin-bottom: 0.7rem;
+                        input[type="radio"]{
+                            width: 1rem;
+                            height: 1rem;
+                            transform: none;
+                            &:before{
+                                width: 0.5rem;
+                                height: 0.5rem;
+                            }
+                        }
+                        label{
+                            color: #000;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                            line-height: 0.8rem;
+                        }
+                    }
+                    .delivery-another-contact {
+                        margin-top: 2rem;
+                        &.hidden{
+                            display: none;
+                        }
+                        .single-input{
+                            &:last-of-type{
+                                margin-top: 1rem;
+                            }
+                        }
+                    }
+                }
+                .button-area{
+                    margin-top: 2rem;
+                    span {
+                        cursor:pointer;
+                    }
+                }
+            }
+        }
+        &.fifth-step{
+            .attention-wrapper{
+                background-color: #DCE3EE;
+                border-radius: 0.35rem;
+                padding:1rem;
+                margin:1.5rem 0;
+                &.hidden{
+                    display: none;
+                }
+                .top{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0.6rem;
+                    .blue{
+                        color: $blue;;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        line-height: 1.5rem;
+                        span{
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+                .bottom{
+                    p{
+                        color:#000;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        line-height: 1.15rem;
+                    }
+                }
+            }
+            .tab-links{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                .tab-btn{
+                    padding:0.5rem;
+                    background-color: $gray;
+                    border-radius: 0.35rem 0.35rem 0 0;
+                    border: 1px solid $dgray;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap:0.75rem;
+                    font-weight: 500;
+                    color:$dgray;
+                    cursor: pointer;
+                    &.active{
+                        background-color: $blue;
+                        color:#fff;
+                        svg{
+                            stroke:#fff;
+                            path{
+                                stroke:#FFF;
+                               &.line{
+                                fill:#FFF;
+                               }
+
+                            }
+                        }
+                    }
+                }
+            }
+            .tabcontent{
+                background-color: $gray;
+                border-radius: 0 0 .35rem .35rem;
+                border:1px solid $dgray;
+                padding:1.25rem 1rem;
+                border-top:none;
+                &.hidden{
+                    display: none;
+                }
+                .tab-inner-wrapper{
+                    .top{
+                        display: flex;
+                        gap:0.7rem;
+                        align-items: center;
+                        margin-bottom: 1.5rem;
+                        .left{
+                            width: 1rem;
+                            height: 1rem;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .right{
+                            p{
+                            color: #89A1C7;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                            line-height: 0.9rem;
+                            }
+                        }
+                    }
+                    .cc-form{
+                        .cc-number{
+                            .top{
+                                margin-bottom: 0.5rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                
+                            }
+                            .triple-text-input{
+                                display: grid;
+                                margin-top:1rem;
+                                grid-template-columns: 2fr 1fr 1fr;
+                                gap:1rem;
+                            }
+                        }
+                        .input-title{
+                            color: #000;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                            line-height: 0.8rem;
+                            margin-bottom: 0.5rem;;
+                        }
+                        .single-text-input{
+                            position: relative;
+                            input{
+                                margin-top:0;
+                                width: 100%;
+                                border-radius: 0.35rem;
+                                border:1px solid $dgray;
+                                background-color: #ffF;
+                                padding:0.8rem 1rem;
+                                font-size: 0.8rem;
+                                font-weight: 500;
+                                line-height: 0.8rem;
+                            }
+                            .lock-icon{
+                                width: 0.6rem;
+                                height: 0.6rem;
+                                position: absolute;
+                                top:50%;
+                                right:0.85rem;
+                                transform:translate(0, -75%);
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                            .input-wrapper{
+                                position: relative;
+                            }
+                            .info-icon {
+                                width: 0.8rem;
+                                height: 0.8rem;
+                                position: absolute;
+                                top:50%;
+                                right:0.85rem;
+                                transform:translate(0, -50%);
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+        .right{
+            .title {
+                color: #000;
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+            .table-area{
+                border: 1px solid $dgray;
+                border-radius: 0.35rem;
+                overflow: hidden;
+                .info-title {
+                    color: $dgray;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    line-height: 1.15rem;
+                    &.blue {
+                        color:$blue;
+                    }
+                }
+                .table-cell-white {
+                    display: grid;
+                    grid-template-columns: 6rem 1rem 1fr 1rem;
+                    gap: 1rem;
+                    padding: 1rem 1rem;
+                    border-bottom: 1px solid $dgray;
+                    align-items: center;
+
+                    .info-tooltip, .edit-icon{
+                        width: 1rem;
+                        height: 1rem;
+                    
+                    }
+                    .right-info {
+                        p{
+                        color: #000;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        line-height: 1.15rem;
+                        }
+                        .radio-input {
+                            display: flex;
+                            gap:0.75rem;
+                            align-items: center;
+                            input{
+                                width: 1rem;
+                                height: 1rem;
+                                transform: translateY(0em);
+                                &:before{
+                                    width: 0.5rem;
+                                    height: 0.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .table-cell-gray {
+                    background-color: $gray;
+                    .gray-cell{
+                        margin-bottom: 1rem;
+                        display: grid;
+                        padding: 1rem;
+                        align-items: center;
+                        grid-template-columns: 6rem 1rem 3rem 1fr;
+                        gap: 1rem;
+                        &:last-of-type{
+                            margin-bottom: 0;
+                        }
+                        .price-area{
+                            p{
+                            color: #000;
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            line-height: 1.5rem;
+                            &.blue {
+                                color:$blue;
+                            }
+                            }
+                        }
+                        .additional-info{
+                            p{
+                            color: #000;
+                            font-size: 0.6rem;
+                            font-weight: 500;
+                            line-height: 0.85rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//SPINNER
+.blur{
+    position: fixed;
+    top:0;
+    left:0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 988;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: $blue;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
