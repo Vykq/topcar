@@ -1,4 +1,14 @@
+<?php
+if(is_page('calculated-costs')){ ?>
+<div class="review-container">
+	<div class="recontainer">
+<?php } ?>
 <section class="splide" aria-labelledby="carousel-heading">
+<?php
+if(is_page('calculated-costs')){ ?>
+	<p class="title">Read what other customers </br>say about their experience</p>
+<?php } ?>
+
 		<div class="splide__track">
 				<ul class="splide__list">
 					<li class="splide__slide">
@@ -63,6 +73,10 @@
 			</button>
   		</div>
 		</section>
+		<?php if(is_page('calculated-costs')){ ?>
+		</div>
+	</div>
+<?php } ?>
 <script>
   document.addEventListener( 'DOMContentLoaded', function() {
     var splide = new Splide( '.splide', {

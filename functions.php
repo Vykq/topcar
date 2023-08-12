@@ -180,7 +180,7 @@ function top_car_delivery_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if(is_page('calculated-costs')){
+	if(is_page('calculated-costs') || is_page('thank-you')){
 		wp_enqueue_style( 'top-car-delivery-calculated-costs-css', get_template_directory_uri() . '/assets/style.css', array(), '1.1' );
 		wp_enqueue_script( 'top-car-delivery-calculated-costs-js', get_template_directory_uri() . '/assets/app.js', array(), _S_VERSION, true );
 		wp_enqueue_script( 'cleave', get_template_directory_uri() . '/assets/cleave.min.js', array(), '4.1.4', true );
@@ -198,9 +198,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_custom_script' );
  * Create new order on form submit
  */
 require get_template_directory() . '/inc/calculator/create-new-order.php';
-
-
-
+require __DIR__ . '/vendor/autoload.php';
 
 
 /**
@@ -242,3 +240,29 @@ function be_arrows_in_menus( $item_output, $item, $depth, $args ) {
 }
 add_filter( 'walker_nav_menu_start_el', 'be_arrows_in_menus', 10, 4 );
 
+
+
+add_action('admin_head', 'my_custom_fonts');
+
+function my_custom_fonts() {
+  echo '<style>
+    span.order{
+		border:1px solid #d4d4d4;
+		border-radius:5px;
+		padding: 3px 6px;
+		font-weight:700;
+		color:#FFF;
+	}
+	span.order.begin {
+	background-color:#FFD73B;
+	color:#FFF;
+	}
+	span.order.paid {
+		background-color:#00A300;
+	}
+	span.order.unpaid{
+		background-color:#A30000;
+		color:#FFF;
+	}
+  </style>';
+}

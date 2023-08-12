@@ -1,0 +1,89 @@
+.thank-you{
+    position:relative;
+    height: 100vh;
+    width: 100%;
+    @media (max-width:850px){
+        height: 100%;
+    }
+    .container{
+        height: 100vh;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+        @media (max-width:850px){
+            width: 80%;
+            height: 100%;
+        }
+        .ty-text{
+            color: #000;
+            text-align: center;
+            font-family: Kento;
+            font-size: 2rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 2.25rem;
+            margin-bottom: 1rem;
+        }
+        .subtitle{
+            color: #000;
+            text-align: center;
+            font-size: 1.5rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .cursive{
+            p{
+                color: #000;
+                text-align: center;
+                font-family: Montserrat;
+                font-size: 0.9rem;
+                font-style: italic;
+                font-weight: 100;
+                line-height: 1.4rem;
+                margin-bottom: 1.4rem;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+            a {
+                color:$blue;
+                text-align: center;
+                font-family: Montserrat;
+                font-size: 0.9rem;
+                font-style: italic;
+                font-weight: 100;
+                line-height: 1.4rem;
+                text-align: center;
+                display: block;
+                margin-top: 2rem;
+            }
+        }
+        
+    }
+    .top-right{
+        width: 20rem;
+        height: 20rem;
+        position: absolute;
+        top:0;
+        right:0;
+        @media (max-width:850px){
+            display: none;
+        }
+    }
+    .bottom-left{
+        width: 20rem;
+        height: 20rem;
+        position: absolute;
+        bottom:0;
+        left:0;
+        @media (max-width:850px){
+            position: unset;
+        }
+    }
+
+}

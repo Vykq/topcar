@@ -4,32 +4,92 @@
 Template Name: Calculated Cost
 
 */
-
 get_header();
 if (isset($_GET['order'])) {
    $order_id = absint($_GET['order']);
-   $cityTo = get_post_meta($order_id, 'city_to', true);
-   $cityFrom = get_post_meta($order_id, 'city_from', true);
-   $email = get_post_meta($order_id, 'email', true);
-   $transportType = get_post_meta($order_id, 'transportType', true);
-   $year = get_post_meta($order_id, 'year', true);
-   $vehicle = get_post_meta($order_id, 'vehicle', true);
-   $vehicleModel = get_post_meta($order_id, 'vehicleModel', true);
-   $operable = get_post_meta($order_id, 'operable', true);
-   $shipping_date = get_post_meta($order_id, 'shippingDate', true);
-   $telephone = get_post_meta($order_id, 'telephone', true);
+   $cityTo = get_field('city_to', $order_id);
+   $cityFrom = get_field('city_from', $order_id);
+   $email = get_field('email', $order_id);
+   $transportType = get_field('transport_type', $order_id);
+   $year = get_field('year', $order_id);
+   $vehicle = get_field('vehicle', $order_id);
+   $vehicleModel = get_field('model', $order_id);
+   $operable = get_field('operable', $order_id);
+   $shipping_date = get_field('shipping_date', $order_id);
+   $telephone = get_field('phone', $order_id);
 }
-
 
 ?>
 
 <main id="primary" class="site-main">
+<div class="top-step-wrapper hidden">
+    <div class="ts-container">
+        <div class="tsgrid">
+        <div class="stepIndicator si-first">
+            <div class="number active">
+                <p>1</p>
+                <div class="check-area">
+                    <img src="<?php echo get_template_directory_uri(). '/icons/check.svg'; ?>" class="hidden" alt="">
+                </div>
+            </div>
+            <p class="si-title active">Transport</p>
 
+        </div>
+        <div class="stepDivider">
+            <img src="<?php echo get_template_directory_uri(). '/icons/line.svg'; ?>" alt="">
+        </div>
+        <div class="stepIndicator si-second">
+            <div class="number">
+                <p>2</p>
+                <div class="check-area">
+                    <img src="<?php echo get_template_directory_uri(). '/icons/check.svg'; ?>" class="hidden" alt="">
+                </div>
+            </div>
+            <p class="si-title">Pickup</p>
+        </div>
+        <div class="stepDivider">
+            <img src="<?php echo get_template_directory_uri(). '/icons/line.svg'; ?>" alt="">
+        </div>
+        <div class="stepIndicator si-third">
+            <div class="number">
+                <p>3</p>
+                <div class="check-area">
+                    <img src="<?php echo get_template_directory_uri(). '/icons/check.svg'; ?>" class="hidden" alt="">
+                </div>
+            </div>
+            <p class="si-title">Delivery</p>
+        </div>
+        <div class="stepDivider">
+            <img src="<?php echo get_template_directory_uri(). '/icons/line.svg'; ?>" alt="">
+        </div>
+        <div class="stepIndicator si-fourth">
+            <div class="number">
+                <p>4</p>
+                <div class="check-area">
+                    <img src="<?php echo get_template_directory_uri(). '/icons/check.svg'; ?>" class="hidden" alt="">
+                </div>
+            </div>
+            <p class="si-title">Book shipment</p>
+        </div>
+        <div class="stepDivider">
+            <img src="<?php echo get_template_directory_uri(). '/icons/line.svg'; ?>" alt="">
+        </div>
+        <div class="stepIndicator si-fifth">
+            <div class="number">
+                <p>5</p>
+                <div class="check-area">
+                    <img src="<?php echo get_template_directory_uri(). '/icons/check.svg'; ?>" class="hidden" alt="">
+                </div>
+            </div>
+            <p class="si-title">Thank you</p>
+        </div>
+    </div>
+    </div>
+</div>
 <div class="container calculated-cost-container">
-    <?php
-    
 
-    ?>
+<script>
+</script>
     <form id="calculated-cost-form">
         <div class="wrapper">
             <div class="left first-step" id="cost-step-1">
@@ -64,7 +124,7 @@ if (isset($_GET['order'])) {
                         </div>
                         <div class="single-radio">
                     
-                            <input type="radio" class="big-radio-button" name="checkout" value="regular" id="regular-price">
+                            <input type="radio" class="big-radio-button" name="checkout" value="regular" id="regular-price-option">
                             <label for="regular-price">
                             <p class="radio-title">Regular price</p>
                             <p id="regular-price" class="price">$249</p>
@@ -135,7 +195,11 @@ if (isset($_GET['order'])) {
                             </div>
                             </div>
                         </div>
-                        <div class="right"></div>
+                        <div class="right hidden companyNameInputArea">
+                        <p class="input-title">Company name</p>
+                            <input type="text" name="Company" id="companyName" placeholder="">
+                        
+                        </div>
                     </div>
                 </div>
                 <div class="button-area">
@@ -173,6 +237,9 @@ if (isset($_GET['order'])) {
                             <input type="radio" name="thisIsA" value="Business address" id="businessaddress">
                             <label for="businessaddress">Business address</label>
                         </div>
+                    </div>
+                    <div class="single-input hidden businessAdressPickup">
+                        <input type="text" name="businessAdressPickup" id="businessaddressPickup" placeholder="Business name">
                     </div>
                     <div class="options sec">
                         <p class="title">Who do we contact about pickup?</p>
@@ -229,6 +296,9 @@ if (isset($_GET['order'])) {
                             <input type="radio" name="thisIsA-delivery" value="Business address" id="businessaddress-delivery">
                             <label for="businessaddress-delivery">Business address</label>
                         </div>
+                    </div>
+                    <div class="single-input hidden deliveryBusinessName">
+                        <input type="text" id="deliveryBusinessName" name="deliveryBusinessName" placeholder="Bussines name">
                     </div>
                     <div class="options sec">
                         <p class="title">Who do we contact about delivery?</p>
@@ -311,32 +381,32 @@ if (isset($_GET['order'])) {
                                 <p class="gray-text">This is a secure payment.</p>
                             </div>
                         </div>
-                        <div class="cc-form">
+                        <div id="dropin-container"></div>
+                        <div class="cc-form" id="hosted-fields-form">
                             <div class="cc-number">
                                 <div class="top">
-                                    <p class="input-title">Card number</p>
+                                    <label for="card-number" class="input-title">Card number</label>
                                     <img src="<?php echo get_template_directory_uri(). '/icons/cards.svg'; ?>" alt="">
                                 </div>
                                 <div class="single-text-input">
-                                
-                                    <input type="text" name="cc-nr" class="cc-nr-field" placeholder="Card number">
+                                <div id="card-number"></div>
                                     <div class="lock-icon">
                                         <img src="<?php echo get_template_directory_uri(). '/icons/gray-lock.svg'; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="triple-text-input">
                                     <div class="single-text-input">
-                                        <p class="input-title">Full name on card</p>
-                                        <input type="text" name="cc-name" placeholder="e.g. John doe">
+                                        <label for="cardholder-name" class="input-title">Full name on card</label>
+                                        <div id="cardholder-name"></div>
                                     </div>
                                     <div class="single-text-input">
-                                        <p class="input-title">Expiration date</p>
-                                        <input type="text" name="cc-year" class="cc-year-field" placeholder="MM/YY">
+                                        <label for="expiration-date" class="input-title">Expiration date</label>
+                                        <div id="expiration-date"></div>
                                     </div>
                                     <div class="single-text-input">
-                                        <p class="input-title">Security code</p>
+                                        <label class="input-title" for="cvv">Security code</label>
                                         <div class="input-wrapper">
-                                            <input type="phone" name="cc-cvv" class="cc-cvv-field" placeholder="CVV">
+                                            <div id="cvv"></div>
                                             <div class="info-icon">
                                                 <img src="<?php echo get_template_directory_uri(). '/icons/info-icon.svg'; ?>" alt="">
                                             </div>
@@ -345,6 +415,7 @@ if (isset($_GET['order'])) {
                                     </div>
                                 </div>
                             </div>
+                            <p class="credit-card-error"></p>
                         </div>
                     </div>
                 </div>
@@ -352,16 +423,61 @@ if (isset($_GET['order'])) {
                         <div class="tab-inner-wrapper">
                             <p class="paypal-title">Your PayPal account will be charged $<span id="actual-price">109</span>, which is applied to the total amount due.</p>
                             <form id="paypal-form">
+                                <span id="paypal-button-pay"></span>
                                 <input type="hidden" id="actual-price" value="100">
-                                <button type="submit" id="pay-with-paypal"><img src="<?php echo get_template_directory_uri(). '/icons/white-paypal.svg'; ?>" alt=""></button>
                                 <p class="gray">The safer, easier way to pay</p>
                             </form>
                         </div>
-                </div>                
-            
-                
-               
+                </div> 
+             <div class="bottom-area credit-area">
+                <div class="billing-address-area">
+                <p class="gray">Billing address <img src="<?php echo get_template_directory_uri(). '/icons/info-icon.svg'; ?>" alt=""></p>
+                    <div class="radio-input">
+                        <input type="radio" id="first-billing-address" name="billing-address-area" value="" checked>
+                        <label for="first-billing-address" id="first-billing-address-label">AA</label>
+                    </div>
+                    <div class="radio-input">
+                        <input type="radio" id="second-billing-address" name="billing-address-area" value="">
+                        <label for="second-billing-address" id="second-billing-address-label">BB</label>
+                    </div>
+                    <div class="radio-input">
+                        <input type="radio" id="other-billing-address" name="billing-address-area" value="">
+                        <label for="other-billing-address" id="other-billing-address-label">Other Address</label>
+                    </div>
+                    <div class="hidden additional-billing-address-fields">
+                        <div class="inside-wrapper">
 
+                            <div class="row">
+                                <div class="single-input">
+                                    <input type="text" name="billing-street-other" placeholder="Street">
+                                </div>
+                            </div>
+                            <div class="row four-col">
+                                <div class="single-input">
+                                    <input type="text" name="billing-appartments-other" placeholder="Apt.">
+                                </div>
+                                <div class="single-input">
+                                    <input type="text" name="billing-city-other" placeholder="City">
+                                </div>
+                                <div class="single-input stateinput">
+                                    <input class="input q-input" id="state" type="search" name="state" value="" autocomplete="off" placeholder="State">
+                                    <ul id="state" class="list-select d-none"></ul>
+                                </div>
+                                <div class="single-input zipinput">
+                                    <input type="text" name="billing-zip-other" placeholder="Zipcode">
+                                    <ul id="state" class="list-select d-none"></ul>
+                                </div>
+                            </div>
+                            <p class="error-msg-last"></p>
+                        </div>
+                    </div>
+                </div>
+                 <input id="payment-button" type="submit" class="hosted-btn primary-btn big-btn text-uppercase" value="Book shipment" disabled />
+                 <div class="text">
+                    <p>By clicking “Book shipment” you agree to our <a href="/terms-and-conditions/">Terms & Conditions.</a></p>
+                    <p class="flex">When can I cancel? <img src="<?php echo get_template_directory_uri(). '/icons/info-icon.svg'; ?>" alt=""></p>
+                 </div>           
+             </div>               
             </div>
 
 
@@ -388,10 +504,7 @@ if (isset($_GET['order'])) {
                         <img src="<?php echo get_template_directory_uri(). '/icons/info-icon.svg'; ?>" alt="">
                         </div>
                         <div class="right-info">
-                            <input type="text" readonly class="available-date" placeholder="05/02/2023">
-                        </div>
-                        <div class="edit-icon">
-                            <img src="<?php echo get_template_directory_uri(). '/icons/edit-icon.svg'; ?>" alt="">
+                            <p id="first-available-date">05/02/2023</p>
                         </div>
                    </div>
                    <div class="table-cell-white">
@@ -402,9 +515,6 @@ if (isset($_GET['order'])) {
                         <div class="right-info">
                             <p id="vehicle-name"><?php echo $year . ' ' . $vehicle . ' ' . $vehicleModel ?></p>
                         </div>
-                        <div class="edit-icon">
-                            <img src="<?php echo get_template_directory_uri(). '/icons/edit-icon.svg'; ?>" alt="">
-                        </div>
                    </div>
                    <div class="table-cell-white">
                         <div class="left-title">
@@ -414,9 +524,6 @@ if (isset($_GET['order'])) {
                         <div class="right-info">
                             <p id="ship-from"><?php echo $cityFrom; ?></p>
                         </div>
-                        <div class="edit-icon">
-                            <img src="<?php echo get_template_directory_uri(). '/icons/edit-icon.svg'; ?>" alt="">
-                        </div>
                    </div>
                    <div class="table-cell-white">
                         <div class="left-title">
@@ -425,9 +532,6 @@ if (isset($_GET['order'])) {
                         <div class="info-tooltip empty"></div>
                         <div class="right-info">
                             <p id="ship-to"><?php echo $cityTo; ?></p>
-                        </div>
-                        <div class="edit-icon">
-                            <img src="<?php echo get_template_directory_uri(). '/icons/edit-icon.svg'; ?>" alt="">
                         </div>
                    </div>
                    <div class="table-cell-white">
@@ -447,8 +551,6 @@ if (isset($_GET['order'])) {
                                 <label for="vehicle-non-running">Non-running</label>
                             </div>
                         </div>
-                        <div class="edit-icon empty">
-                        </div>
                    </div>
                    <div class="table-cell-white">
                         <div class="left-title">
@@ -467,8 +569,6 @@ if (isset($_GET['order'])) {
                                 <label for="transport-enclosed">Enclosed (+$150)</label>
                             </div>
                         </div>
-                        <div class="edit-icon empty">
-                        </div>
                    </div>
                    <div class="table-cell-white">
                         <div class="left-title">
@@ -479,8 +579,6 @@ if (isset($_GET['order'])) {
                         </div>
                         <div class="right-info">
                             <p id="service_type">Door to door</p>
-                        </div>
-                        <div class="edit-icon empty">
                         </div>
                    </div>
                    <div class="table-cell-white">
@@ -493,8 +591,6 @@ if (isset($_GET['order'])) {
                         <div class="right-info">
                             <p id="service-type">Door to door</p>
                         </div>
-                        <div class="edit-icon empty">
-                        </div>
                    </div>
                    <div class="table-cell-white">
                         <div class="left-title">
@@ -506,8 +602,6 @@ if (isset($_GET['order'])) {
                         <div class="right-info">
                             <p id="insurance">Included</p>
                         </div>
-                        <div class="edit-icon empty">
-                        </div>
                    </div>
                    <div class="table-cell-white">
                         <div class="left-title">
@@ -518,8 +612,6 @@ if (isset($_GET['order'])) {
                         </div>
                         <div class="right-info">
                             <p id="Insurance">1-2 days</p>
-                        </div>
-                        <div class="edit-icon empty">
                         </div>
                    </div>
                    <div class="table-cell-gray">

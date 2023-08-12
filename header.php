@@ -18,10 +18,11 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
-	<?php if(is_page('calculated-costsa')){ ?>
-		<script src="https://www.paypal.com/sdk/js?client-id=AQoCY8Fw7rCK1mFkwQuHqxNrwXlwWhq6sO9AeAnRcbxrwdRUAalPkeOO9gU6NXOfGHwG38BppjzOjcza&components=buttons,funding-eligibility,hosted-fields&locale=en_US&enable-funding=card,credit"></script>
-	
-	
+	<?php if(is_page('calculated-costs')){ ?>
+		<script src="https://js.braintreegateway.com/web/3.96.1/js/client.min.js"></script>
+		<script src="https://js.braintreegateway.com/web/3.96.1/js/paypal-checkout.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.96.1/js/hosted-fields.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<?php } ?>
 </head>
 

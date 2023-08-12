@@ -10,7 +10,9 @@
  */
 
 ?>
-
+<?php if(is_page('calculated-costs')){
+	echo get_template_part('paypal/script');
+}?>
 	<footer id="colophon" class="site-footer">
 		<div class="footer-links">
 			<div class="footer-service-menu">

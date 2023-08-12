@@ -1,7 +1,7 @@
 import checkName from "./check-name";
 import checkEmail from "./check-email";
 import checkPhone from "./check-phone";
-
+import checkCompany from "./check-company";
 const CalculatorSteps = () => {
 
     
@@ -38,7 +38,8 @@ const CalculatorSteps = () => {
     const phone2Input = document.querySelector('input[name="phone2"]');
     let isPhoneAdded = false;
     let youAreChecked = false;
-
+    let step2Business = false;
+    const companyNameInput = document.querySelector('#companyName');
     //Step 3 
     const statusInfoBlock2 = document.querySelector('.error-msg2');
     const pickupStreetInput = document.querySelector('input[name="pickup-street-address"]');
@@ -50,7 +51,8 @@ const CalculatorSteps = () => {
     let isAddressChecked = false;
     let isPickupContactChecked = false;
     let isPickupAdditionalChecked = false;
-
+    let pickupBusinessName = false;
+    const pickupBusinessNameInput = document.querySelector('#businessaddressPickup')
     //Step 4
     const statusInfoBlock3 = document.querySelector('.error-msg3'); 
     const deliveryStreetInput = document.querySelector('input[name="delivery-street-address"]');
@@ -62,17 +64,36 @@ const CalculatorSteps = () => {
     let isDeliveryAddressChecked = false;
     let isDeliveryContactChecked = false;
     let isDeliveryAdditionalChecked = false;
+    let deliveryBusinessName = false;
+    const deliveryBusinessNameInput = document.querySelector('#deliveryBusinessName')
+
+    //LastStep
+    const firstBillingAddressInput = document.querySelector('#first-billing-address');
+    const firstBillingAddressLabel = document.querySelector('#first-billing-address-label');
+    const shipFrom = document.querySelector('#ship-from');
+
+    const secondBillingAddressInput = document.querySelector('#second-billing-address');
+    const secondBillingAddressLabel = document.querySelector('#second-billing-address-label');
+    const shipTo = document.querySelector('#ship-to');
+
+    //Step indicators
+    const stepIndicatorsArea = document.querySelector('.top-step-wrapper');
+    const stepIndicators = document.querySelectorAll('.stepIndicator');
+    const stepTitles = document.querySelectorAll('.si-title');
 
 
-
-
+    //Additional containers 
+    const revSlider = document.querySelector('.review-container');
     //Way to Second step
     btnToSecond.addEventListener('click', (e) =>{
         e.preventDefault();
 
         if(secondStep.classList.contains('hidden')){
+            stepIndicatorsArea.classList.remove('hidden');
             firstStep.classList.add('hidden');
             secondStep.classList.remove('hidden');
+            revSlider.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -90,6 +111,12 @@ const CalculatorSteps = () => {
             return false;
         }
 
+        if(pickupBusinessName){
+            if(!pickupBusinessNameValue()){
+                return false;
+            }
+        }
+
         if(isPickupAdditionalChecked === true){
             if(!pickupAdditionalValue()){
                 return false;
@@ -102,6 +129,13 @@ const CalculatorSteps = () => {
         if(fourthStep.classList.contains('hidden')){
             fourthStep.classList.remove('hidden');
             thirdStep.classList.add('hidden');
+            stepIndicators[1].classList.remove('active');
+            stepIndicators[1].classList.add('completed');
+            stepIndicators[2].classList.add('active');
+            stepTitles[1].classList.remove('active');
+            stepTitles[1].classList.add('completed');
+            stepTitles[2].classList.add('active')
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -129,10 +163,28 @@ const CalculatorSteps = () => {
                 return false;
             }
         }
+        if(deliveryBusinessName){
+            if(!deliveryBusinessNameValue()){
+                return false;
+            }
+        }
+
+        firstBillingAddressLabel.textContent = pickupStreetInput.value + ', ' + document.querySelector('input[name="pickup-optional"]').value + ", " + shipFrom.textContent;
+        firstBillingAddressInput.value = pickupStreetInput.value + ', ' + document.querySelector('input[name="pickup-optional"]').value + ", " + shipFrom.textContent;
+        
+        secondBillingAddressLabel.textContent = deliveryStreetInput.value + ', ' + document.querySelector('input[name="delivery-optional"]').value + ", " + shipTo.textContent;
+        secondBillingAddressInput.value = deliveryStreetInput.value + ', ' + document.querySelector('input[name="delivery-optional"]').value + ", " + shipTo.textContent;
 
         if(fifthStep.classList.contains('hidden')){
             fifthStep.classList.remove('hidden');
             fourthStep.classList.add('hidden');
+            stepIndicators[2].classList.remove('active');
+            stepIndicators[2].classList.add('completed');
+            stepIndicators[3].classList.add('active');
+            stepTitles[2].classList.remove('active');
+            stepTitles[2].classList.add('completed');
+            stepTitles[3].classList.add('active')
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -142,8 +194,11 @@ const CalculatorSteps = () => {
         e.preventDefault();
 
         if(firstStep.classList.contains('hidden')){
+            stepIndicatorsArea.classList.add('hidden');
             secondStep.classList.add('hidden');
             firstStep.classList.remove('hidden');
+            revSlider.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -154,6 +209,7 @@ const CalculatorSteps = () => {
         if(secondStep.classList.contains('hidden')){
             thirdStep.classList.add('hidden');
             secondStep.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -165,6 +221,7 @@ const CalculatorSteps = () => {
         if(thirdStep.classList.contains('hidden')){
             fourthStep.classList.add('hidden');
             thirdStep.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -172,6 +229,7 @@ const CalculatorSteps = () => {
         if(fourthStep.classList.contains('hidden')){
             fifthStep.classList.add('hidden');
             fourthStep.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     })
 
@@ -189,6 +247,12 @@ const CalculatorSteps = () => {
         if (!phoneValue()) {
             return false;
         }
+        if(step2Business){
+            if(!step2CompanyAdded()){
+            return false;
+        }
+  
+        }   
 
         if(isPhoneAdded === true){
             if (!phoneValue2()) {
@@ -199,6 +263,13 @@ const CalculatorSteps = () => {
         if(thirdStep.classList.contains('hidden')){
             secondStep.classList.add('hidden');
             thirdStep.classList.remove('hidden');
+            stepIndicators[0].classList.remove('active');
+            stepIndicators[0].classList.add('completed');
+            stepIndicators[1].classList.add('active');
+            stepTitles[0].classList.remove('active');
+            stepTitles[0].classList.add('completed');
+            stepTitles[1].classList.add('active')
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
 
@@ -357,7 +428,34 @@ const CalculatorSteps = () => {
             statusInfoBlock.classList.remove('field-error');
         }
     });
+
     
+    companyNameInput.addEventListener('change', () => {
+        if (companyNameInput.classList.contains('error')) {
+            companyNameInput.classList.remove('error');
+            statusInfoBlock.textContent = '';
+            statusInfoBlock.classList.remove('field-error');
+        }
+    });
+
+    deliveryBusinessNameInput.addEventListener('change', () => {
+        if (deliveryBusinessNameInput.classList.contains('error')) {
+            deliveryBusinessNameInput.classList.remove('error');
+            statusInfoBlock3.textContent = '';
+            statusInfoBlock3.classList.remove('field-error');
+        }
+    });
+    
+
+    pickupBusinessNameInput.addEventListener('change', () => {
+        if (pickupBusinessNameInput.classList.contains('error')) {
+            pickupBusinessNameInput.classList.remove('error');
+            statusInfoBlock2.textContent = '';
+            statusInfoBlock2.classList.remove('field-error');
+        }
+    });
+
+
     pickupAdditionalName.addEventListener('change', () => {
         if (pickupAdditionalName.classList.contains('error')) {
             pickupAdditionalName.classList.remove('error');
@@ -436,7 +534,15 @@ const CalculatorSteps = () => {
             const field = el.parentElement.parentElement;
             field.classList.remove('error');
             statusInfoBlock.textContent = "";
+            if(el.value == "Representing a business" && el.checked){
+                document.querySelector('.companyNameInputArea').classList.remove('hidden');
+                step2Business = true;
+            } else {
+                document.querySelector('.companyNameInputArea').classList.add('hidden');
+                step2Business = false;
+            }
         })
+       
     })
 
     addressInputs.forEach(el =>{
@@ -445,6 +551,13 @@ const CalculatorSteps = () => {
             const field = el.parentElement.parentElement;
             field.classList.remove('error');
             statusInfoBlock2.textContent = "";
+            if(el.value == "Business address" && el.checked){
+                document.querySelector('.businessAdressPickup').classList.remove('hidden');
+                pickupBusinessName = true;
+            } else {
+                document.querySelector('.businessAdressPickup').classList.add('hidden');
+                pickupBusinessName = false;
+            }
         })
     })
 
@@ -454,6 +567,13 @@ const CalculatorSteps = () => {
             const field = el.parentElement.parentElement;
             field.classList.remove('error');
             statusInfoBlock3.textContent = "";
+            if(el.value == "Business address" && el.checked){
+                deliveryBusinessName = true;
+                document.querySelector('.deliveryBusinessName').classList.remove('hidden');
+            } else {
+                deliveryBusinessName = false;
+                document.querySelector('.deliveryBusinessName').classList.add('hidden');
+            }
         })
     })
 
@@ -490,6 +610,32 @@ const CalculatorSteps = () => {
         });
       
         return isPickupAdditionalChecked;
+      }
+
+      function step2CompanyAdded() {
+            if (checkCompany(companyNameInput, statusInfoBlock)) {
+                return true;
+            } else {
+                return false;
+            }
+      }
+
+      
+
+      function deliveryBusinessNameValue() {
+        if (checkCompany(deliveryBusinessNameInput, statusInfoBlock3)) {
+            return true;
+        } else {
+            return false;
+        }
+  }
+
+      function pickupBusinessNameValue() {
+            if (checkCompany(pickupBusinessNameInput, statusInfoBlock2)) {
+                return true;
+            } else {
+                return false;
+            }
       }
 
       function isDeliveryContactSomeoneElseChecked() {
